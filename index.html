@@ -6,7 +6,7 @@
     <title>Custom Websites for Clothes Alterations | Professional Web Design</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +21,8 @@
     <!-- Custom Styles -->
     <style>
         :root {
-            --primary-font: 'Inter', sans-serif;
-            --heading-font: 'Playfair Display', serif;
+            --primary-font: 'Montserrat', sans-serif;
+            --heading-font: 'Montserrat', sans-serif;
             --primary-color: #2D3250;
             --accent-color: #7077A1;
             --secondary-color: #F6B17A;
@@ -39,12 +39,136 @@
         }
         
         .fade-in {
-            animation: fadeIn 0.8s ease-in;
+            animation: fadeIn 0.5s ease-in;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .gradient-text {
+            color: var(--primary-color);
+        }
+        
+        .hero-pattern {
+            background: #f8f9fa;
+            padding: 4rem 1rem;
+        }
+        
+        .premium-badge {
+            background: var(--primary-color);
+            border: none;
+            box-shadow: none;
+        }
+        
+        .cta-button {
+            background: var(--primary-color);
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .secondary-button {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .secondary-button:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .step-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .material-icons-round {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-text {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* Keep gallery styles intact */
+        
+        /* Simplify form styles */
+        .form-input, .form-select, .form-textarea {
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(45, 50, 80, 0.1);
+        }
+        
+        .form-submit {
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Simplify modal styles */
+        .modal {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-close {
+            background: var(--primary-color);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Update responsive styles */
+        @media (max-width: 768px) {
+            .hero-pattern {
+                padding: 3rem 1rem;
+            }
+            
+            .step-card {
+                padding: 1.5rem;
+            }
+            
+            .form-content {
+                padding: 1.5rem;
+            }
         }
         
         .floating {
@@ -67,33 +191,12 @@
             100% { transform: scale(1); }
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
         .accent-gradient {
             background: linear-gradient(135deg, var(--secondary-color), #f8c9a6);
         }
         
         .primary-gradient {
             background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));
-        }
-        
-        .hero-pattern {
-            background-color: #f8f9fa;
-            background-image: 
-                linear-gradient(to bottom,
-                    rgba(255, 255, 255, 0.95) 0%,
-                    rgba(255, 255, 255, 0.85) 30%,
-                    rgba(255, 255, 255, 0.75) 100%),
-                url('https://images.unsplash.com/photo-1612423284934-2850a4ea6b0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover, cover;
-            background-position: center, center;
-            background-repeat: no-repeat;
-            position: relative;
-            padding: 2rem 1rem;
         }
         
         .hero-pattern::before {
@@ -124,30 +227,6 @@
             animation: slowZoom 20s ease-in-out infinite alternate;
         }
         
-        .step-card {
-            background: white;
-            position: relative;
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-        
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 1rem;
-            background: linear-gradient(135deg, rgba(112, 119, 161, 0.1), rgba(246, 177, 122, 0.1));
-            z-index: -1;
-            transition: all 0.4s ease;
-        }
-        
-        .step-card:hover::before {
-            transform: rotate(2deg) scale(1.05);
-        }
-        
         .cursor-glow {
             width: 20px;
             height: 20px;
@@ -158,158 +237,18 @@
             z-index: 9999;
         }
         
-        .material-icons-round {
-            font-size: 32px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-        
         .feature-icon {
             font-size: 28px;
             margin-right: 0.5rem;
             vertical-align: middle;
         }
         
-        .step-number {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #000;
-            margin-bottom: 1rem;
-        }
-        
-        .highlight-text {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-        
-        .premium-badge {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border: 2px solid white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cta-button {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            isolation: isolate;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120%;
-            height: 120%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-            transform: translate(-50%, -50%) rotate(25deg) translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-        
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -2;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(45, 50, 80, 0.3);
-        }
-        
-        .cta-button:hover::before {
-            transform: translate(-50%, -50%) rotate(25deg) translateY(-100%);
-        }
-        
-        .cta-button:hover::after {
-            opacity: 1;
-        }
-        
-        .cta-button:active {
-            transform: translateY(-1px) scale(0.98);
-            box-shadow: 0 5px 15px rgba(45, 50, 80, 0.2);
-        }
-        
-        .secondary-button {
-            background: white;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            isolation: isolate;
-        }
-        
-        .secondary-button::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--primary-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-        
-        .secondary-button:hover {
-            color: white;
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(45, 50, 80, 0.15);
-        }
-        
-        .secondary-button:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        
-        .secondary-button:active {
-            transform: translateY(-1px);
-            box-shadow: 0 5px 15px rgba(45, 50, 80, 0.1);
-        }
-        
-        /* Add ripple effect for all buttons */
-        .btn-ripple {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-ripple::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            transform: scale(0);
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 0.5s, opacity 0.5s;
-        }
-        
-        .btn-ripple:active::after {
-            transform: scale(4);
-            opacity: 0;
-            transition: 0s;
-        }
-        
         .gallery-card {
             position: relative;
             overflow: hidden;
             border-radius: 1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
             background: #f8f9fa;
+            padding: 1.5rem;
         }
         
         .gallery-card.modern {
@@ -324,45 +263,21 @@
             background: linear-gradient(135deg, #f5f5f7, #ffffff);
         }
         
-        .gallery-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(45, 50, 80, 0.15);
-        }
-        
         .gallery-card img {
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .gallery-card:hover img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 2rem 1.5rem;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .gallery-card:hover .gallery-overlay {
-            transform: translateY(0);
+            border-radius: 0.5rem;
+            margin-top: 1rem;
         }
         
         .gallery-tag {
             display: inline-block;
             padding: 0.25rem 1rem;
-            background: var(--secondary-color);
             color: white;
             border-radius: 1rem;
             font-size: 0.875rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         
         .gallery-tag.modern {
@@ -375,6 +290,23 @@
         
         .gallery-tag.bold {
             background: var(--secondary-color);
+        }
+
+        .gallery-content {
+            margin-bottom: 1rem;
+        }
+
+        .gallery-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .gallery-description {
+            color: var(--tertiary-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         /* Modal Styles */
@@ -714,7 +646,7 @@
             }
 
             .gallery-card:hover {
-                transform: translateY(-5px);
+                transform: none;
             }
         }
 
@@ -818,105 +750,9 @@
                 <a href="#contact" class="cta-button btn-ripple inline-block text-white px-8 py-4 rounded-lg text-lg font-semibold">
                     Get Started Today
                 </a>
-                <a href="#features" class="secondary-button btn-ripple inline-block px-8 py-4 rounded-lg text-lg font-semibold">
-                    Learn More
-                </a>
             </div>
         </div>
     </header>
-
-    <!-- Tailored for Tailors Section -->
-    <section class="py-20 px-4 bg-gray-50 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,var(--secondary-color),transparent_70%)]"></div>
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">Tailored for Tailors</h2>
-            <p class="text-lg text-gray-600">
-                Your business deserves a website that reflects the quality of your work. We create <span class="highlight-text">stunning, easy-to-manage websites</span> designed specifically for clothes alterations shops—so you can focus on perfecting every stitch.
-            </p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">See the Difference</h2>
-            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Browse through our portfolio of custom-designed websites. Click on any design to view in detail.
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
-                <!-- Modern Minimalist Website -->
-                <div class="gallery-card modern aspect-[4/3]" onclick="openModal('Modern Minimalist Design', 'minimalist.png', 'Clean lines, ample white space, and intuitive navigation create a sophisticated, contemporary experience.')">
-                    <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
-                         class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag modern">Modern Design</span>
-                        <h3 class="text-white text-xl font-semibold mb-2">Minimalist Excellence</h3>
-                        <p class="text-gray-200 text-sm">Clean lines, ample white space, and intuitive navigation create a sophisticated, contemporary experience.</p>
-                    </div>
-                </div>
-                
-                <!-- Classic Elegant Website -->
-                <div class="gallery-card classic aspect-[4/3]" onclick="openModal('Classic Elegant Design', 'classic.png', 'Refined aesthetics with traditional elements, perfect for established alteration businesses.')">
-                    <img src="classic.png" alt="Classic Elegant Alterations Website" 
-                         class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag classic">Timeless Style</span>
-                        <h3 class="text-white text-xl font-semibold mb-2">Classic Elegance</h3>
-                        <p class="text-gray-200 text-sm">Refined aesthetics with traditional elements, perfect for established alteration businesses.</p>
-                    </div>
-                </div>
-                
-                <!-- Bold Dynamic Website -->
-                <div class="gallery-card bold aspect-[4/3]" onclick="openModal('Bold Dynamic Design', 'bold.png', 'Eye-catching animations and strong visuals create an engaging, memorable experience.')">
-                    <img src="bold.png" alt="Bold Dynamic Alterations Website" 
-                         class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag bold">Dynamic Design</span>
-                        <h3 class="text-white text-xl font-semibold mb-2">Bold & Dynamic</h3>
-                        <p class="text-gray-200 text-sm">Eye-catching animations and strong visuals create an engaging, memorable experience.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-bold mb-12 text-center gradient-text" data-aos="fade-up">Why Choose Us?</h3>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-xl mb-4 font-semibold">
-                        <span class="material-icons-round feature-icon pulse">design_services</span>
-                        Designed for Your Industry
-                    </div>
-                    <p class="text-gray-600">A sleek, professional website tailored for tailors and alterations experts.</p>
-                </div>
-                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-xl mb-4 font-semibold">
-                        <span class="material-icons-round feature-icon pulse">devices</span>
-                        Mobile-Friendly & SEO-Optimized
-                    </div>
-                    <p class="text-gray-600">Attract more local customers with a website that looks amazing on any device.</p>
-                </div>
-                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-xl mb-4 font-semibold">
-                        <span class="material-icons-round feature-icon pulse">event_available</span>
-                        Effortless Booking & Contact Forms
-                    </div>
-                    <p class="text-gray-600">Make it easy for customers to reach you with integrated appointment scheduling.</p>
-                </div>
-                <div class="feature-card p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-xl mb-4 font-semibold">
-                        <span class="material-icons-round feature-icon pulse">rocket_launch</span>
-                        Fast & Secure Hosting
-                    </div>
-                    <p class="text-gray-600">Enjoy a reliable, high-performance website without the hassle.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Process Section -->
     <section class="py-20 px-4 bg-gray-50">
@@ -945,15 +781,92 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Gallery Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">See the Difference</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Browse through our portfolio of custom-designed websites. Click on any design to view in detail.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                <!-- Modern Minimalist Website -->
+                <div class="gallery-card modern" onclick="openModal('Modern Minimalist Design', 'minimalist.png', 'Clean lines, ample white space, and intuitive navigation create a sophisticated, contemporary experience.')">
+                    <span class="gallery-tag modern">Modern Design</span>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Minimalist Excellence</h3>
+                        <p class="gallery-description">Clean lines, ample white space, and intuitive navigation create a sophisticated, contemporary experience.</p>
+                    </div>
+                    <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
+                         class="w-full h-auto object-cover">
+                </div>
+                
+                <!-- Classic Elegant Website -->
+                <div class="gallery-card classic" onclick="openModal('Classic Elegant Design', 'classic.png', 'Refined aesthetics with traditional elements, perfect for established alteration businesses.')">
+                    <span class="gallery-tag classic">Timeless Style</span>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Classic Elegance</h3>
+                        <p class="gallery-description">Refined aesthetics with traditional elements, perfect for established alteration businesses.</p>
+                    </div>
+                    <img src="classic.png" alt="Classic Elegant Alterations Website" 
+                         class="w-full h-auto object-cover">
+                </div>
+                
+                <!-- Bold Dynamic Website -->
+                <div class="gallery-card bold" onclick="openModal('Bold Dynamic Design', 'bold.png', 'Eye-catching animations and strong visuals create an engaging, memorable experience.')">
+                    <span class="gallery-tag bold">Dynamic Design</span>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title">Bold & Dynamic</h3>
+                        <p class="gallery-description">Eye-catching animations and strong visuals create an engaging, memorable experience.</p>
+                    </div>
+                    <img src="bold.png" alt="Bold Dynamic Alterations Website" 
+                         class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
     <section id="contact" class="py-20 px-4 relative overflow-hidden primary-gradient">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,white,transparent_70%)]"></div>
-        <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white">Ready to Transform Your Business?</h2>
-            <p class="text-xl text-gray-100 mb-12">Let's create a website that works as hard as you do.</p>
-            <a href="#" class="cta-button btn-ripple accent-gradient inline-block text-white px-8 py-4 rounded-lg text-lg font-semibold" onclick="openConsultationForm(event)">
-                Get a Free Consultation
-            </a>
+        <div class="max-w-4xl mx-auto relative z-10" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white text-center">Contact Us</h2>
+            <p class="text-xl text-gray-100 mb-12 text-center">Let's create a website that works as hard as you do.</p>
+            
+            <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl max-w-xl mx-auto">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="space-y-6">
+                        <div class="form-group">
+                            <label class="form-label" for="contactName">Full Name</label>
+                            <input type="text" id="contactName" class="form-input" required 
+                                placeholder="Your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" class="form-input" required 
+                                placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-input" required 
+                                placeholder="Your phone number">
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="form-submit cta-button btn-ripple w-full">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div id="formSuccess" class="hidden text-center py-8">
+                    <span class="material-icons-round text-6xl mb-4" style="color: var(--secondary-color)">check_circle</span>
+                    <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
+                    <p class="text-gray-600 mb-6">We've received your request and will contact you within 24 hours.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1009,22 +922,6 @@
             }
         });
 
-        function openConsultationForm(event) {
-            event.preventDefault();
-            const modal = document.getElementById('consultationModal');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeConsultationForm(event) {
-            if (event) {
-                event.stopPropagation();
-            }
-            const modal = document.getElementById('consultationModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
         function handleSubmit(event) {
             event.preventDefault();
             // Here you would typically send the form data to your server
@@ -1036,24 +933,16 @@
                 <div class="text-center py-8">
                     <span class="material-icons-round text-6xl mb-4" style="color: var(--secondary-color)">check_circle</span>
                     <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-                    <p class="text-gray-600 mb-6">We've received your consultation request and will contact you within 24 hours to discuss your project.</p>
-                    <button onclick="closeConsultationForm()" class="form-submit">Close</button>
+                    <p class="text-gray-600 mb-6">We've received your request and will contact you within 24 hours.</p>
                 </div>
             `;
             
             // Reset form after 5 seconds
             setTimeout(() => {
                 formContent.innerHTML = originalContent;
-                document.getElementById('consultationForm').reset();
+                document.getElementById('contactForm').reset();
             }, 5000);
         }
-        
-        // Close consultation form with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeConsultationForm();
-            }
-        });
     </script>
 
     <!-- Modal -->
@@ -1064,89 +953,6 @@
             </button>
             <img src="" alt="" class="modal-image">
             <div class="modal-title"></div>
-        </div>
-    </div>
-
-    <!-- Add Consultation Form Modal -->
-    <div class="form-modal" id="consultationModal">
-        <div class="form-content">
-            <button class="modal-close" onclick="closeConsultationForm(event)" aria-label="Close form">
-                <span class="material-icons-round">close</span>
-            </button>
-            <h2 class="text-2xl font-bold mb-6 gradient-text">Get Your Free Consultation</h2>
-            <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours to discuss your project.</p>
-            <form id="consultationForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label class="form-label" for="businessName">Business Name</label>
-                    <input type="text" id="businessName" class="form-input" required 
-                           placeholder="Your business name">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="contactName">Contact Person</label>
-                    <input type="text" id="contactName" class="form-input" required 
-                           placeholder="Your full name">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="email">Email Address</label>
-                    <input type="email" id="email" class="form-input" required 
-                           placeholder="your@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="phone">Phone Number</label>
-                    <input type="tel" id="phone" class="form-input" required 
-                           placeholder="Your phone number">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="websiteType">Preferred Website Style</label>
-                    <select id="websiteType" class="form-select" required>
-                        <option value="">Select a style</option>
-                        <option value="modern">Modern Minimalist</option>
-                        <option value="classic">Classic Elegant</option>
-                        <option value="bold">Bold Dynamic</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="services">What services do you offer?</label>
-                    <textarea id="services" class="form-input form-textarea" required 
-                              placeholder="List your main alteration services"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label optional" for="timeline">Preferred Timeline</label>
-                    <select id="timeline" class="form-select">
-                        <option value="asap">As soon as possible</option>
-                        <option value="1month">Within 1 month</option>
-                        <option value="3months">Within 3 months</option>
-                        <option value="flexible">Flexible</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label optional" for="budget">Budget Range</label>
-                    <select id="budget" class="form-select">
-                        <option value="">Select a range</option>
-                        <option value="basic">Basic Package ($1000-$2000)</option>
-                        <option value="standard">Standard Package ($2000-$3500)</option>
-                        <option value="premium">Premium Package ($3500+)</option>
-                        <option value="unsure">Not sure yet</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label optional" for="message">Additional Information</label>
-                    <textarea id="message" class="form-input form-textarea" 
-                              placeholder="Tell us about your vision for the website, specific features you need, or any questions you have."></textarea>
-                </div>
-                
-                <button type="submit" class="form-submit">
-                    Submit Consultation Request
-                </button>
-            </form>
         </div>
     </div>
 </body>
