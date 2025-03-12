@@ -54,7 +54,8 @@
         
         .hero-pattern {
             background: var(--accent-color);
-            padding: 4rem 1rem;
+            padding: 3rem 1rem 2rem;
+            min-height: auto;
         }
         
         .premium-badge {
@@ -741,102 +742,147 @@
                 font-size: 1.125rem !important;
             }
         }
+        
+        /* Update section spacing for unified design */
+        .section-spacing {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        /* Remove primary gradient background from contact section */
+        .contact-section {
+            background: var(--accent-color);
+        }
+        
+        /* Update form background to match hero */
+        .contact-form {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 43, 91, 0.1);
+        }
+        
+        /* Update text colors for contact section */
+        .contact-section h2, 
+        .contact-section p {
+            color: var(--primary-color);
+        }
+        
+        /* Update gallery cards to match hero background */
+        .gallery-card {
+            background: white;
+        }
+        
+        /* Add subtle separator between sections */
+        .section-divider {
+            height: 1px;
+            background: rgba(0, 43, 91, 0.1);
+            margin: 1rem auto;
+            width: 80%;
+            max-width: 800px;
+        }
     </style>
 </head>
 <body class="bg-white">
-    <!-- Hero Section -->
-    <header class="min-h-screen flex items-center justify-center hero-pattern relative overflow-hidden">
+    <!-- Combined Hero, Gallery and Contact Section -->
+    <header class="hero-pattern relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent"></div>
-        <div class="max-w-4xl mx-auto text-center fade-in relative z-10">
+        
+        <!-- Hero Content -->
+        <div class="max-w-4xl mx-auto text-center fade-in relative z-10 section-spacing pb-0">
             <div class="mb-6" data-aos="fade-down">
                 <img src="logo.png" alt="AlterPro Logo" class="h-12 mx-auto">
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight gradient-text" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight gradient-text" data-aos="fade-up">
                 Professional <span class="highlight-text">Alterations & Tailoring</span> Websites by AlterPro
             </h1>
-            <p class="text-xl text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
                 Custom-designed websites that showcase your alterations expertise and help you attract more clients online.
             </p>
         </div>
+        
+        <!-- Subtle Divider -->
+        <div class="section-divider my-4"></div>
+        
+        <!-- Gallery Section -->
+        <div class="section-spacing px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">See the Difference</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Modern Minimalist Website -->
+                    <div class="gallery-card modern" onclick="openModal('Modern Minimalist Design', 'minimalist.png')">
+                        <h3 class="gallery-title text-center mb-4">Modern Design</h3>
+                        <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                    
+                    <!-- Classic Elegant Website -->
+                    <div class="gallery-card classic" onclick="openModal('Classic Elegant Design', 'classic.png')">
+                        <h3 class="gallery-title text-center mb-4">Timeless Style</h3>
+                        <img src="classic.png" alt="Classic Elegant Alterations Website" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                    
+                    <!-- Bold Dynamic Website -->
+                    <div class="gallery-card bold" onclick="openModal('Bold Dynamic Design', 'bold.png')">
+                        <h3 class="gallery-title text-center mb-4">Dynamic Design</h3>
+                        <img src="bold.png" alt="Bold Dynamic Alterations Website" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Subtle Divider -->
+        <div class="section-divider my-4"></div>
+        
+        <!-- Contact Form Section -->
+        <div id="contact" class="section-spacing px-4 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto relative z-10" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text">Contact Us</h2>
+                <p class="text-xl text-gray-600 mb-12 text-center">Let's create a website that works as hard as you do.</p>
+                
+                <div class="contact-form rounded-2xl p-8 md:p-10 shadow-xl max-w-xl mx-auto">
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="space-y-6">
+                            <div class="form-group">
+                                <label class="form-label" for="contactName">Full Name</label>
+                                <input type="text" id="contactName" class="form-input" required 
+                                    placeholder="Your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" required 
+                                    placeholder="your@email.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" required 
+                                    placeholder="Your phone number">
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="form-submit cta-button btn-ripple w-full">
+                                    Get Started
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="formSuccess" class="hidden text-center py-8">
+                        <span class="material-icons-round text-6xl mb-4" style="color: var(--secondary-color)">check_circle</span>
+                        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
+                        <p class="text-gray-600 mb-6">We've received your request and will contact you within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <!-- Gallery Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">See the Difference</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
-                <!-- Modern Minimalist Website -->
-                <div class="gallery-card modern" onclick="openModal('Modern Minimalist Design', 'minimalist.png')">
-                    <h3 class="gallery-title text-center mb-4">Modern Design</h3>
-                    <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
-                         class="w-full h-auto object-cover">
-                </div>
-                
-                <!-- Classic Elegant Website -->
-                <div class="gallery-card classic" onclick="openModal('Classic Elegant Design', 'classic.png')">
-                    <h3 class="gallery-title text-center mb-4">Timeless Style</h3>
-                    <img src="classic.png" alt="Classic Elegant Alterations Website" 
-                         class="w-full h-auto object-cover">
-                </div>
-                
-                <!-- Bold Dynamic Website -->
-                <div class="gallery-card bold" onclick="openModal('Bold Dynamic Design', 'bold.png')">
-                    <h3 class="gallery-title text-center mb-4">Dynamic Design</h3>
-                    <img src="bold.png" alt="Bold Dynamic Alterations Website" 
-                         class="w-full h-auto object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-20 px-4 relative overflow-hidden primary-gradient">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,white,transparent_70%)]"></div>
-        <div class="max-w-4xl mx-auto relative z-10" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-white text-center">Contact Us</h2>
-            <p class="text-xl text-gray-100 mb-12 text-center">Let's create a website that works as hard as you do.</p>
-            
-            <div class="bg-white rounded-2xl p-8 md:p-10 shadow-xl max-w-xl mx-auto">
-                <form id="contactForm" onsubmit="handleSubmit(event)">
-                    <div class="space-y-6">
-                        <div class="form-group">
-                            <label class="form-label" for="contactName">Full Name</label>
-                            <input type="text" id="contactName" class="form-input" required 
-                                placeholder="Your full name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email Address</label>
-                            <input type="email" id="email" class="form-input" required 
-                                placeholder="your@email.com">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-input" required 
-                                placeholder="Your phone number">
-                        </div>
-                        
-                        <div>
-                            <button type="submit" class="form-submit cta-button btn-ripple w-full">
-                                Get Started
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <div id="formSuccess" class="hidden text-center py-8">
-                    <span class="material-icons-round text-6xl mb-4" style="color: var(--secondary-color)">check_circle</span>
-                    <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-                    <p class="text-gray-600 mb-6">We've received your request and will contact you within 24 hours.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="py-8 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto text-center text-gray-600">
+    <footer class="py-8 px-4 bg-gray-800 text-white">
+        <div class="max-w-4xl mx-auto text-center">
             <p>&copy; 2025 AlterPro. All rights reserved.</p>
         </div>
     </footer>
@@ -848,6 +894,43 @@
             once: true,
             offset: 100
         });
+        
+        // Modal functionality
+        function openModal(title, imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = modal.querySelector('.modal-image');
+            const modalTitle = modal.querySelector('.modal-title');
+            
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        function closeModal(event) {
+            // Only close if clicking on the modal background or close button
+            if (event.target.id === 'imageModal' || 
+                event.target.classList.contains('modal-close') || 
+                event.target.parentElement.classList.contains('modal-close')) {
+                const modal = document.getElementById('imageModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+        
+        // Form submission handling
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Hide the form and show success message
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').classList.remove('hidden');
+            
+            // You would typically send the form data to a server here
+            // For demonstration, we're just showing the success message
+        }
     </script>
 
     <!-- Modal -->
