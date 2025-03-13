@@ -24,10 +24,10 @@
         :root {
             --primary-font: 'Montserrat', sans-serif;
             --heading-font: 'Montserrat', sans-serif;
-            --primary-color: #002B5B;
+            --primary-color: #1e3a8a;
             --accent-color: #F4F4F4;
-            --secondary-color: #FFC857;
-            --tertiary-color: #002B5B;
+            --secondary-color: #edaf31;
+            --tertiary-color: #1e3a8a;
         }
         
         body {
@@ -54,7 +54,7 @@
         
         .hero-pattern {
             background: var(--accent-color);
-            padding: 3rem 1rem 2rem;
+            padding: 1rem 1rem 2rem;
             min-height: auto;
         }
         
@@ -136,7 +136,7 @@
         .form-submit {
             width: 100%;
             padding: 1rem;
-            background: linear-gradient(to right, var(--primary-color), #003b7a);
+            background: linear-gradient(to right, var(--primary-color), #2d4ba8);
             color: white;
             border: none;
             border-radius: 0.75rem;
@@ -146,13 +146,13 @@
             transition: all 0.3s ease;
             margin-top: 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 43, 91, 0.2);
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
         }
         
         .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 43, 91, 0.3);
-            background: linear-gradient(to right, #003b7a, var(--primary-color));
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+            background: linear-gradient(to right, #2d4ba8, var(--primary-color));
         }
         
         .form-submit:active {
@@ -178,7 +178,7 @@
         /* Update responsive styles */
         @media (max-width: 768px) {
             .hero-pattern {
-                padding: 3rem 1rem;
+                padding: 1rem 1rem;
             }
             
             .step-card {
@@ -194,28 +194,16 @@
             animation: floating 4s ease-in-out infinite;
         }
         
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
         .pulse {
             animation: pulse 2s ease-in-out infinite;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
         .accent-gradient {
-            background: linear-gradient(135deg, var(--secondary-color), #ffd787);
+            background: linear-gradient(135deg, var(--secondary-color), #f1be52);
         }
         
         .primary-gradient {
-            background: linear-gradient(135deg, var(--primary-color), #003b7a);
+            background: linear-gradient(135deg, var(--primary-color), #2d4ba8);
         }
         
         .hero-pattern::before {
@@ -226,7 +214,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at center,
-                rgba(255, 200, 87, 0.1) 0%,
+                rgba(237, 175, 49, 0.1) 0%,
                 rgba(255, 255, 255, 0) 70%);
             pointer-events: none;
         }
@@ -236,14 +224,10 @@
             color: #424769;
         }
         
-        /* Add subtle animation to the background */
-        @keyframes slowZoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.05); }
-        }
-        
-        .hero-pattern {
-            animation: slowZoom 20s ease-in-out infinite alternate;
+        /* Update the logo container to remove animation */
+        .hero-content {
+            position: relative;
+            z-index: 10;
         }
         
         .cursor-glow {
@@ -267,31 +251,81 @@
             overflow: hidden;
             border-radius: 1rem;
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 4px 20px rgba(0, 43, 91, 0.1);
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 43, 91, 0.1);
         }
         
-        .gallery-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 43, 91, 0.15);
-        }
-        
-        .gallery-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            text-align: center;
-        }
-        
         .gallery-card img {
             width: 100%;
-            height: auto;
+            height: 200px;
             object-fit: cover;
             border-radius: 0.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mobile-specific gallery styles */
+        @media (max-width: 768px) {
+            .gallery-card {
+                padding: 1rem;
+                margin-bottom: 0;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .gallery-card img {
+                height: 180px;
+                margin-bottom: 0;
+                flex-grow: 0;
+            }
+            
+            .gallery-title {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .grid.md\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-card:hover {
+                transform: none;
+                box-shadow: 0 4px 20px rgba(0, 43, 91, 0.1);
+            }
+        }
+        
+        /* Fix for gallery card image container */
+        .gallery-card-image-container {
+            flex-grow: 0;
+            margin-bottom: 0;
+        }
+        
+        /* Tablet-specific gallery styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid.md:grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .gallery-card img {
+                height: 220px;
+            }
+        }
+        
+        /* Update the gallery section spacing */
+        .section-spacing.px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-spacing.px-4 {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
         }
         
         /* Update gallery card backgrounds */
@@ -745,8 +779,8 @@
         
         /* Update section spacing for unified design */
         .section-spacing {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
         }
         
         /* Remove primary gradient background from contact section */
@@ -780,6 +814,17 @@
             width: 80%;
             max-width: 800px;
         }
+
+        /* Update the hero content spacing */
+        .section-spacing {
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+        }
+
+        /* Adjust the logo container margin */
+        .logo-container {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -788,14 +833,14 @@
         <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent"></div>
         
         <!-- Hero Content -->
-        <div class="max-w-4xl mx-auto text-center fade-in relative z-10 section-spacing pb-0">
-            <div class="mb-6" data-aos="fade-down">
-                <img src="logo.png" alt="AlterPro Logo" class="h-12 mx-auto">
+        <div class="max-w-4xl mx-auto text-center relative z-10 section-spacing pb-0">
+            <div class="logo-container">
+                <img src="alterpro logo.png" alt="AlterPro Logo" class="h-28 md:h-32 lg:h-40 mx-auto" style="object-fit: contain; max-width: 90%;">
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight gradient-text" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight gradient-text">
                 Professional <span class="highlight-text">Alterations & Tailoring</span> Websites by AlterPro
             </h1>
-            <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-xl text-gray-600 mb-8">
                 Custom-designed websites that showcase your alterations expertise and help you attract more clients online.
             </p>
         </div>
@@ -806,28 +851,34 @@
         <!-- Gallery Section -->
         <div class="section-spacing px-4">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text" data-aos="fade-up">See the Difference</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center" style="color: var(--primary-color); font-weight: 700;">See the Difference</h2>
                 
                 <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
                     <!-- Modern Minimalist Website -->
                     <div class="gallery-card modern" onclick="openModal('Modern Minimalist Design', 'minimalist.png')">
                         <h3 class="gallery-title text-center mb-4">Modern Design</h3>
-                        <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
-                             class="w-full h-auto object-cover">
+                        <div class="gallery-card-image-container">
+                            <img src="minimalist.png" alt="Modern Minimalist Alterations Website" 
+                                 class="w-full object-cover">
+                        </div>
                     </div>
                     
                     <!-- Classic Elegant Website -->
                     <div class="gallery-card classic" onclick="openModal('Classic Elegant Design', 'classic.png')">
                         <h3 class="gallery-title text-center mb-4">Timeless Style</h3>
-                        <img src="classic.png" alt="Classic Elegant Alterations Website" 
-                             class="w-full h-auto object-cover">
+                        <div class="gallery-card-image-container">
+                            <img src="classic.png" alt="Classic Elegant Alterations Website" 
+                                 class="w-full object-cover">
+                        </div>
                     </div>
                     
                     <!-- Bold Dynamic Website -->
                     <div class="gallery-card bold" onclick="openModal('Bold Dynamic Design', 'bold.png')">
                         <h3 class="gallery-title text-center mb-4">Dynamic Design</h3>
-                        <img src="bold.png" alt="Bold Dynamic Alterations Website" 
-                             class="w-full h-auto object-cover">
+                        <div class="gallery-card-image-container">
+                            <img src="bold.png" alt="Bold Dynamic Alterations Website" 
+                                 class="w-full object-cover">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -895,6 +946,57 @@
             offset: 100
         });
         
+        // Form submission handling with Google Sheets integration
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const submitButton = form.querySelector('button[type="submit"]');
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Sending...';
+            
+            // Replace this URL with your Google Apps Script Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzKPMXaE35rANnehwVZDmshX1TDSLsBvrxEJ32ZfO0odZq8C58FN6aEjJeUMeKrqeLi/exec';
+            
+            // Send data to Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                // Hide the form and show success message
+                form.style.display = 'none';
+                formSuccess.classList.remove('hidden');
+                
+                // Clear form
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('There was an error submitting the form. Please try again.');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Get Started';
+            });
+        }
+        
         // Modal functionality
         function openModal(title, imageSrc) {
             const modal = document.getElementById('imageModal');
@@ -918,18 +1020,6 @@
                 modal.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
             }
-        }
-        
-        // Form submission handling
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Hide the form and show success message
-            document.getElementById('contactForm').style.display = 'none';
-            document.getElementById('formSuccess').classList.remove('hidden');
-            
-            // You would typically send the form data to a server here
-            // For demonstration, we're just showing the success message
         }
     </script>
 
